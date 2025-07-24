@@ -1,6 +1,8 @@
-# wrangler.toml (wrangler v3.88.0^)
-[observability.logs]
-enabled = true
-name = "worker"
+name = "tgbot"
 main = "worker.js"
 compatibility_date = "2024-05-01"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "worker-db"
+database_id = "f6d94262-ebe9-48c8-a44e-f84bead9b30d" 
