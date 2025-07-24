@@ -1,4 +1,4 @@
-const TELEGRAM_TOKEN = '8085303818:AAE1G-ekS5pWFqdTIR0eibXCMoWYNs77RaU';
+const TELEGRAM_TOKEN = '8480479068:AAECCieMMC6FiT0EJ-_d3DIAt5PXD1zrW2Q';
 const CHANNEL_USERNAME = '@your_channel_4';
 const PARTNER_LINK = 'https://partner.service.com/register?sub1=';
 
