@@ -15,10 +15,10 @@ export default {
         data = Object.fromEntries(url.searchParams.entries());
       }
       await env.DB.prepare(
-        `INSERT INTO Registrations ("User ID", "Telegram ID", "DateTime", "Country", "Source", "Hash", "Hash ID", "Event ID")
-         VALUES (?, ?, ?, ?, ?, ?, ?, ?)`
+        `INSERT INTO Registrations ("User ID", "Telegram ID", "DateTime", "Country", "Source", "Hash", "Hash ID")
+         VALUES (?, ?, ?, ?, ?, ?, ?)`
       ).bind(
-        data.user_id, data.sub1, data.date, data.country, data.source_id, data.hash_name, data.hash_id, data.event_id
+        data.user_id, data.sub1, data.date, data.country, data.source_id, data.hash_name, data.hash_id
       ).run();
       await sendMessage(data.sub1, 'Регистрация прошла успешно! Теперь сделайте депозит.');
       return new Response('OK');
