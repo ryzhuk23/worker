@@ -77,12 +77,14 @@ async function handleUserFlow(chatId, env) {
     await sendSubscribeMessage(chatId);
     return;
   }
-  const reg = await env.DB.prepare('SELECT * FROM Registrations WHERE "Telegram ID" = ? LIMIT 1').bind(chatId).first();
+  // 2. Проверка регистрации
+  const reg = await env.DB.prepare('SELECT * FROM Registrations WHERE "Telegram ID" = ? LIMIT 1').bind(String(chatId)).first();
   if (!reg) {
     await sendRegistrationLink(chatId);
     return;
   }
-  const dep = await env.DB.prepare('SELECT * FROM Deposits WHERE "Telegram ID" = ? LIMIT 1').bind(chatId).first();
+  // 3. Проверка депозита
+  const dep = await env.DB.prepare('SELECT * FROM Deposits WHERE "Telegram ID" = ? LIMIT 1').bind(String(chatId)).first();
   if (!dep) {
     await sendMessage(chatId, 'Пожалуйста, сделайте депозит для продолжения.');
     return;
